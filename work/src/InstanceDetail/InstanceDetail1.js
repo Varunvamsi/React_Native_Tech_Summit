@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, Button, FlatList} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, Button, FlatList, Alert} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Search from 'react-native-search-box';
 
@@ -57,21 +57,22 @@ renderItem={({item}) => <View >
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Demand} </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
+
 </View>
 </View>
 
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Spot}   </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
     </View>
     </View>
 
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Reserved}</Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
     </View>
     </View>
 

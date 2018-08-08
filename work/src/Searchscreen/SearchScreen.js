@@ -13,14 +13,7 @@ static NavigationOptions = {
 render () {
 return (
 <View>
-<View style = {{width:'100%',  alignItems: 'flex-end',}}>
 
-<Button
-title = "Cart"
- onPress ={ () => this.props.navigation.navigate('TotalCost')}
-/>
-
-</View>
 <View style = {styles.inputContainer}>
 
 <TextInput
@@ -33,6 +26,14 @@ title = "Cart"
 title = "Search"
  onPress ={ () => this.props.navigation.navigate('ListInstances')}
  />
+
+</View>
+<View style = {{width:'100%',  alignItems: 'center',}}>
+
+<Button
+title = "Cart"
+ onPress ={ () => this.props.navigation.navigate('TotalCost')}
+/>
 
 </View>
 </View>

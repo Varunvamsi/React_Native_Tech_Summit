@@ -1,22 +1,94 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,Button, FlatList} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 
 class InstanceDetail3 extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      data: [
+        {
+          Instance_Name:'Instance Name:  M4:',
+          Instance_Type: 'Instance Type:Balance of Compute, Memory, Network Resources',
+          Instance_Price_Demand: 'Instance Price On Demand: 0.12/hr',
+          Instance_Price_Spot:'Instance Price Spot: Depends on the time',
+          Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
+        },
+      ]
+    }
+    }
   static NavigationOptions = {
-    title: 'Trial',
+    title: 'Home',
   };
 
+  renderSeparator() {
+      return <View style={styles.separator} />
+  }
+  renderHeader() {
+     return (
+       <View style={styles.header}>
+         <Text style={styles.headerText}>Instance Details</Text>
+       </View>
+     )
+  }
+
   render () {
-    const {navigate} = this.props.navigation;
     return (
-<Text
-onPress ={ () => navigate('SearchScreen')}> Navigate to Home
-</Text>
+
+<View style = {styles.Container}>
+<View style = {{width:'100%', alignItems: 'flex-end'}}>
+<Button
+title = "Cart"
+ onPress ={ () => this.props.navigation.navigate('TotalCost')}
+  />
+ </View>
+
+<FlatList
+
+data={this.state.data}
+
+renderItem={({item}) => <View >
+<Text style = {styles.listItem}>{item.Instance_Name} </Text>
+
+<Text style = {styles.listItem}>{item.Instance_Type}  </Text>
+
+<View style = {{flexDirection: "row"}}>
+<Text style = {styles.listItem}>{item.Instance_Price_Demand} </Text>
+<View style={[{ width: "10%"}]}>
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber3')} />
+</View>
+</View>
+
+<View style = {{flexDirection: "row"}}>
+<Text style = {styles.listItem}>{item.Instance_Price_Spot}   </Text>
+<View style={[{ width: "10%"}]}>
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber3')} />
+    </View>
+    </View>
+
+<View style = {{flexDirection: "row"}}>
+<Text style = {styles.listItem}>{item.Instance_Price_Reserved}</Text>
+<View style={[{ width: "10%"}]}>
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber3')} />
+    </View>
+    </View>
+
+</View>
+}
+
+ListHeaderComponent={this.renderHeader}
+ ItemSeparatorComponent={this.renderSeparator.bind(this)}
+/>
+
+<Button
+title = "Go back to Home Screen"
+ onPress ={ () => this.props.navigation.navigate('SearchScreen')} />
+</View>
 );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -25,16 +97,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  inputContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  placeInput: {
+    width: "70%"
   },
+  listItem: {
+      width: "90%",
+      marginBottom: 10,
+      padding: 10,
+      flexDirection:"row"
+  },
+header: {
+  padding: 10,
+},
+headerText: {
+  fontSize: 30,
+  fontWeight: '900'
+},
 });
 
 export default InstanceDetail3;

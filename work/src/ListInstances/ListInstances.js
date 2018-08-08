@@ -12,27 +12,27 @@ constructor() {
   this.state = {
     data: [
       {
-        Instance_Id: '1',
+        Instance_Id: 'InstanceDetail1',
         Instance_Name:'T2:',
         Instance_Type: 'Burstable Performance Instances',
       },
       {
-        Instance_Id: '2',
+        Instance_Id: 'InstanceDetail2',
         Instance_Name:'M5:',
         Instance_Type: 'General Purpose Instances',
       },
       {
-        Instance_Id: '3',
+        Instance_Id: 'InstanceDetail3',
         Instance_Name:'M4:',
         Instance_Type: 'Balance of Compute, Memory, Network Resources',
       },
       {
-        Instance_Id: '4',
+        Instance_Id: 'InstanceDetail4',
         Instance_Name:'C5:',
         Instance_Type: 'Compute Instances',
       },
       {
-        Instance_Id: '5',
+        Instance_Id: 'InstanceDetail5',
         Instance_Name:'Z1:',
         Instance_Type: 'Memory Optimised Instances',
       },
@@ -79,20 +79,16 @@ style = {styles.placeButton} />
 </View>
 </View>
 
-<FlatList
-style = {styles.trial}
 
-  data={this.state.data}
-  renderItem={({item}) => <Text
-  onPress ={ () => navigate('InstanceDetail')}
-  style = {styles.listItem}>
-  {item.Instance_Name} {item.Instance_Type}</Text> }
+<View >
+<Text  onPress ={ () => navigate('InstanceDetail')} style = {styles.listItem}> T2:Burstable Performance Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail2')} style = {styles.listItem}> M5:General Purpose Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail3')} style = {styles.listItem}> M4:Balance of Compute, Memory, Network Resources</Text>
+<Text  onPress ={ () => navigate('InstanceDetail4')} style = {styles.listItem}> C5:Compute Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail5')} style = {styles.listItem}>Z1:Memory Optimised Instances</Text>
 
- ItemSeparatorComponent={this.renderSeparator.bind(this)}
-/>
-<Button
-title = "Go back to Home Screen"
- onPress ={ () => this.props.navigation.navigate('SearchScreen')} />
+</View>
+
 </View>
 
 );
@@ -113,7 +109,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   listItem: {
-      width: "100%",
+      width: "85%",
       marginBottom: 10,
       padding: 10,
   },

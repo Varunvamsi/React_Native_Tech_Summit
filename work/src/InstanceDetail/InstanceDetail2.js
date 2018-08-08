@@ -57,21 +57,21 @@ renderItem={({item}) => <View >
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Demand} </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber2')} />
 </View>
 </View>
 
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Spot}   </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber2')} />
     </View>
     </View>
 
 <View style = {{flexDirection: "row"}}>
 <Text style = {styles.listItem}>{item.Instance_Price_Reserved}</Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('TotalCost')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber2')} />
     </View>
     </View>
 
