@@ -1,67 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-//   android:
-//     'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
+import SearchScreen from './src/Searchscreen/SearchScreen'
+import ListInstances from './src/ListInstances/ListInstances'
+import InstanceDetail from './src/InstanceDetail/InstanceDetail1'
+import InstanceDetail2 from './src/InstanceDetail/InstanceDetail2'
+import InstanceDetail3 from './src/InstanceDetail/InstanceDetail3'
+import InstanceDetail4 from './src/InstanceDetail/InstanceDetail4'
+import InstanceDetail5 from './src/InstanceDetail/InstanceDetail5'
+import InstanceNumber1 from './src/InstanceNumber/InstanceNumber1'
+import InstanceNumber2 from './src/InstanceNumber/InstanceNumber2'
+import InstanceNumber3 from './src/InstanceNumber/InstanceNumber3'
+import InstanceNumber4 from './src/InstanceNumber/InstanceNumber4'
+import InstanceNumber5 from './src/InstanceNumber/InstanceNumber5'
 
 
-class HomeScreen extends React.Component{
-  static NavigationOptions = {
-    title: 'Home',
-  };
-
-  render () {
-    // const { navigate } = this.props.navigation;
-    return (
-<View style = {styles.container}>
-<Text style={styles.welcome}>Welcome to React Native!</Text>
-
-// <Button onPress ={ () => this.props.navigation.navigate('Profile')} / >
-
-</View>
-);
-  }
-}
-
-
-class ProfileScreen extends React.Component{
-  static NavigationOptions = {
-    title: 'Profile',
-  };
-
-  render () {
-    const {navigate} = this.props.navigation;
-    return (
-<Text
-onPress ={ () => navigate('Home')}> Navigate to Home
-</Text>
-);
-  }
-}
-
+import TotalCost from './src/TotalCost/TotalCost'
 
 const NavigationApp = createStackNavigator({
-  Home: { screen : HomeScreen},
-  Profile: {screen : ProfileScreen},
-});
+  SearchScreen: { screen : SearchScreen},
+  ListInstances: {screen : ListInstances},
+  InstanceDetail: {screen : InstanceDetail},
+  InstanceDetail2: {screen : InstanceDetail2},
+  InstanceDetail3: {screen : InstanceDetail3},
+  InstanceDetail4: {screen : InstanceDetail4},
+  InstanceDetail5: {screen : InstanceDetail5},
+  InstanceNumber1: {screen: InstanceNumber1},
+  InstanceNumber2: {screen: InstanceNumber2},
+  InstanceNumber3: {screen: InstanceNumber3},
+  InstanceNumber4: {screen: InstanceNumber4},
+  InstanceNumber5: {screen: InstanceNumber5},
 
+  TotalCost: {screen :TotalCost},
+});
 export default class App extends React.Component {
   render() {
-    return
-    <NavigationApp /> ;
+    return <NavigationApp /> ;
   }
 }
 
@@ -83,14 +58,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
-
-
-
-
-// <TextInput
-//           placeholder="Type Here"
-//           value={this.state.search}
-//           onChangeText={this.searchChangedHandler}
-//           style={styles.placeInput}
-//         />

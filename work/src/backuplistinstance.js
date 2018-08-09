@@ -15,41 +15,26 @@ constructor() {
         Instance_Id: 'InstanceDetail1',
         Instance_Name:'T2:',
         Instance_Type: 'Burstable Performance Instances',
-        Instance_Price_Demand: 'Instance Price On Demand: 0.12/hr',
-        Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-        Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
       },
       {
         Instance_Id: 'InstanceDetail2',
         Instance_Name:'M5:',
         Instance_Type: 'General Purpose Instances',
-        Instance_Price_Demand: 'Instance Price On Demand: 0.15/hr',
-        Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-        Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
       },
       {
         Instance_Id: 'InstanceDetail3',
         Instance_Name:'M4:',
         Instance_Type: 'Balance of Compute, Memory, Network Resources',
-        Instance_Price_Demand: 'Instance Price On Demand: 0.18/hr',
-        Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-        Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
       },
       {
         Instance_Id: 'InstanceDetail4',
         Instance_Name:'C5:',
         Instance_Type: 'Compute Instances',
-        Instance_Price_Demand: 'Instance Price On Demand: 0.20/hr',
-        Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-        Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
       },
       {
         Instance_Id: 'InstanceDetail5',
         Instance_Name:'Z1:',
         Instance_Type: 'Memory Optimised Instances',
-        Instance_Price_Demand: 'Instance Price On Demand: 0.22/hr',
-        Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-        Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
       },
     ]
   }
@@ -89,17 +74,17 @@ style = {styles.placeButton} />
 </View>
 
 
-<FlatList
-
-data={this.state.data}
-
-renderItem={({item}) => <View >
-<Text  onPress ={ () => navigate('InstanceDetail', { type: item.Instance_Type , name: item.Instance_Name, demand:item.Instance_Price_Demand, spot: item.Instance_Price_Spot, reserved: item.Instance_Price_Reserved})} style = {styles.listItem}> {item.Instance_Name} {item.Instance_Type}</Text>
-
+<View >
+<Text  onPress ={ () => navigate('InstanceDetail')} style = {styles.listItem}> T2:Burstable Performance Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail2')} style = {styles.listItem}> M5:General Purpose Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail3')} style = {styles.listItem}> M4:Balance of Compute, Memory, Network Resources</Text>
+<Text  onPress ={ () => navigate('InstanceDetail4')} style = {styles.listItem}> C5:Compute Instances</Text>
+<Text  onPress ={ () => navigate('InstanceDetail5')} style = {styles.listItem}>Z1:Memory Optimised Instances</Text>
 
 </View>
-} />
+
 </View>
+
 );
 }
 }

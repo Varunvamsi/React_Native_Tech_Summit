@@ -38,23 +38,9 @@ class TotalCost extends React.Component{
     return (
 <View style = {styles.listContainer}>
 
-<FlatList
-style = {styles.trial}
 
-  data={this.state.data}
-  renderItem={({item}) =>  <View >
-  <Text style = {styles.listItem}>{item.Instance_Name} {item.Instance_Price_Reserved} </Text>
-  <Text> Total Cost : $3500 </Text>
-</View>
- }
+<Text> Total Cost : $3500 </Text>
 
-ListHeaderComponent={this.renderHeader}
- ItemSeparatorComponent={this.renderSeparator.bind(this)}
-/>
-
-<Button
-title = "Go back to Home Screen"
- onPress ={ () => this.props.navigation.navigate('SearchScreen')} />
 </View>
 );
   }

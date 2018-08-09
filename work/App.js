@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {Platform, StyleSheet, Text, View, TextInput, ImageBackground} from 'react-native';
+import { createStackNavigator ,createBottomTabNavigator} from 'react-navigation';
 
 import SearchScreen from './src/Searchscreen/SearchScreen'
 import ListInstances from './src/ListInstances/ListInstances'
@@ -18,6 +18,8 @@ import InstanceNumber5 from './src/InstanceNumber/InstanceNumber5'
 
 import TotalCost from './src/TotalCost/TotalCost'
 
+
+
 const NavigationApp = createStackNavigator({
   SearchScreen: { screen : SearchScreen},
   ListInstances: {screen : ListInstances},
@@ -34,9 +36,44 @@ const NavigationApp = createStackNavigator({
 
   TotalCost: {screen :TotalCost},
 });
+
+const Search = createStackNavigator({
+  Search: {screen : NavigationApp}
+});
+
+const SearchNavigation = createStackNavigator ({
+  SearchScreen : { screen: Search}
+})
+
+const CartNavigation = createStackNavigator ({
+  TotalCost : { screen: TotalCost}
+})
+const TabNavigation = createBottomTabNavigator({
+  Search:{ screen : NavigationApp},
+  Cart:{screen : CartNavigation},
+},
+{
+  tabBarPosition: 'bottom',
+  swipeEnabled: true,
+  tabBarOptions: {
+    activeTintColor: '#f2f2f2',
+    activeBackgroundColor: "#2EC4B6",
+    inactiveTintColor: '#666',
+    labelStyle: {
+      fontSize: 22,
+      padding: 12
+}
+}
+}
+);
+
+
 export default class App extends React.Component {
   render() {
-    return <NavigationApp /> ;
+    return (
+      <TabNavigation />
+
+    );
   }
 }
 

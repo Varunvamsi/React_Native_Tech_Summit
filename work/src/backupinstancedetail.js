@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, Button, FlatList} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, Button, FlatList, Alert} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Search from 'react-native-search-box';
+import InstanceNumber1 from '../../src/InstanceNumber/InstanceNumber1'
 
 
-class InstanceDetail2 extends React.Component{
+class InstanceDetail extends React.Component{
   constructor() {
     super();
     this.state = {
       data: [
         {
-          Instance_Name:'Instance Name: M5:',
-          Instance_Type: 'Instance Type: General Purpose Instances',
+          Instance_Name:'Instance Name: T2:',
+          Instance_Type: 'Instance Type: Burstable Performance Instances',
           Instance_Price_Demand: 'Instance Price On Demand: 0.12/hr',
           Instance_Price_Spot:'Instance Price Spot: Depends on the time',
           Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
@@ -38,12 +39,7 @@ class InstanceDetail2 extends React.Component{
     return (
 
 <View style = {styles.Container}>
-<View style = {{width:'100%', alignItems: 'flex-end'}}>
-<Button
-title = "Cart"
- onPress ={ () => this.props.navigation.navigate('TotalCost')}
-  />
- </View>
+
 
 <FlatList
 
@@ -58,6 +54,7 @@ renderItem={({item}) => <View >
 <Text style = {styles.listItem}>{item.Instance_Price_Demand} </Text>
 <View style={[{ width: "10%"}]}>
 <Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1', {title: item.Instance_Name})} />
+
 </View>
 </View>
 
@@ -82,9 +79,7 @@ ListHeaderComponent={this.renderHeader}
  ItemSeparatorComponent={this.renderSeparator.bind(this)}
 />
 
-<Button
-title = "Go back to Home Screen"
- onPress ={ () => this.props.navigation.navigate('SearchScreen')} />
+
 </View>
 );
   }
@@ -122,4 +117,4 @@ headerText: {
 },
 });
 
-export default InstanceDetail2;
+export default InstanceDetail;

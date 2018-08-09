@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, Button, ImageBackground, Image} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Search from 'react-native-search-box';
 
@@ -12,7 +12,7 @@ static NavigationOptions = {
 
 render () {
 return (
-<View>
+  <View>
 
 <View style = {styles.inputContainer}>
 
@@ -26,14 +26,6 @@ return (
 title = "Search"
  onPress ={ () => this.props.navigation.navigate('ListInstances')}
  />
-
-</View>
-<View style = {{width:'100%',  alignItems: 'center',}}>
-
-<Button
-title = "Cart"
- onPress ={ () => this.props.navigation.navigate('TotalCost')}
-/>
 
 </View>
 </View>
@@ -68,6 +60,12 @@ const styles = StyleSheet.create({
   placeInput: {
     width: "70%"
   },
+  backgroundImage: {
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'cover'
+    },
 });
 
 export default SearchScreen;

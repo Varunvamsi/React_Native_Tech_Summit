@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button, FlatList, Alert} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Search from 'react-native-search-box';
+import InstanceNumber1 from '../../src/InstanceNumber/InstanceNumber1'
 
 
 class InstanceDetail extends React.Component{
@@ -10,19 +11,29 @@ class InstanceDetail extends React.Component{
     this.state = {
       data: [
         {
-          Instance_Name:'Instance Name: T2:',
-          Instance_Type: 'Instance Type: Burstable Performance Instances',
-          Instance_Price_Demand: 'Instance Price On Demand: 0.12/hr',
-          Instance_Price_Spot:'Instance Price Spot: Depends on the time',
-          Instance_Price_Reserved:'Instance Price Reserved: x amount per year',
         },
       ]
     }
     }
-  static NavigationOptions = {
-    title: 'Home',
-  };
 
+
+  // static NavigationOptions = {
+  //   title: 'Home',
+  // };
+
+
+  static navigationOptions = ({ navigation }) => ({
+    name: navigation.state.params.name,
+    type: navigation.state.params.type,
+    demand:navigation.state.params.demand,
+    spot:navigation.state.params.spot,
+    reserved:navigation.state.params.reserved,
+  })
+
+// static navoption2 = ({ navigation }) => ({
+//   type: navigation.state.params.type,
+//
+// })
   renderSeparator() {
       return <View style={styles.separator} />
   }
@@ -38,41 +49,36 @@ class InstanceDetail extends React.Component{
     return (
 
 <View style = {styles.Container}>
-<View style = {{width:'100%', alignItems: 'flex-end'}}>
-<Button
-title = "Cart"
- onPress ={ () => this.props.navigation.navigate('TotalCost')}
-  />
- </View>
+
 
 <FlatList
 
 data={this.state.data}
-
+//
 renderItem={({item}) => <View >
-<Text style = {styles.listItem}>{item.Instance_Name} </Text>
+<Text style = {styles.listItem}> Instance Name :  {this.props.navigation.state.params.name} </Text>
 
-<Text style = {styles.listItem}>{item.Instance_Type}  </Text>
+<Text style = {styles.listItem}> Instance Type :{this.props.navigation.state.params.type} </Text>
 
 <View style = {{flexDirection: "row"}}>
-<Text style = {styles.listItem}>{item.Instance_Price_Demand} </Text>
+<Text style = {styles.listItem}> {this.props.navigation.state.params.demand} </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1', {title: this.props.navigation.state.params.name})} />
 
 </View>
 </View>
 
 <View style = {{flexDirection: "row"}}>
-<Text style = {styles.listItem}>{item.Instance_Price_Spot}   </Text>
+<Text style = {styles.listItem}>{this.props.navigation.state.params.spot}  </Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1', {title: this.props.navigation.state.params.name})} />
     </View>
     </View>
 
 <View style = {{flexDirection: "row"}}>
-<Text style = {styles.listItem}>{item.Instance_Price_Reserved}</Text>
+<Text style = {styles.listItem}>  {this.props.navigation.state.params.reserved}</Text>
 <View style={[{ width: "10%"}]}>
-<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1')} />
+<Button title="+" onPress ={ () => this.props.navigation.navigate('InstanceNumber1', {title: this.props.navigation.state.params.name})} />
     </View>
     </View>
 
@@ -83,9 +89,7 @@ ListHeaderComponent={this.renderHeader}
  ItemSeparatorComponent={this.renderSeparator.bind(this)}
 />
 
-<Button
-title = "Go back to Home Screen"
- onPress ={ () => this.props.navigation.navigate('SearchScreen')} />
+
 </View>
 );
   }

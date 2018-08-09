@@ -5,20 +5,20 @@ import { createStackNavigator } from 'react-navigation';
 
 class InstanceNumber1 extends Component {
 
-  static NavigationOptions = {
-    title: 'Home',
-  };
+  static navigationOptions = ({ navigation }) => ({
+      title: navigation.state.params.title
+    })
+
 
   render()
   {
     return (
       <View>
 
-      <Text style = {styles.headerText}> T2:Burstable Performance Instances </Text>
     <TextInput placeholder = "Number" style = {styles.inputContainer}/>
     <TextInput placeholder = "Description" style = {styles.inputContainer}/>
 
-    <View style = {{ flexDirection : "row",     justifyContent: 'space-between'}}>
+    <View style = {{ flexDirection : "row",  justifyContent: 'space-between'}}>
     <View style = {{width : "20%"}}>
     <Button
     title = "Go Back"
